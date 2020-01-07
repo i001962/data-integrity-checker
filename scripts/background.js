@@ -51,7 +51,7 @@ function updateIcon(request) {
         var current = request;
         console.log('data alrerts', current);
         if (current !== true) {
-            let text1 = "Warn";
+            const text1 = "Warn";
             chrome.browserAction.setBadgeText({
                 text: text1
             });
@@ -60,7 +60,7 @@ function updateIcon(request) {
             });
    
         } else {
-            let text1 = "ok";
+            const text1 = "ok";
             chrome.browserAction.setBadgeText({
                 text: text1
             });

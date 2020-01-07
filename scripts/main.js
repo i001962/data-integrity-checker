@@ -11,7 +11,6 @@ function load(url, callback) {
             if (xhr.readyState === 4 && xhr.status !== 200) {
                 console.log('No public seal found for this asset.');
                 chrome.runtime.sendMessage({
-                    
                     total_alerts: false // or whatever you want to send
                   });
                 return;
@@ -24,8 +23,6 @@ function load(url, callback) {
         console.log('Catch - No public seal found for this asset.');
     }
 }
-
-
 
 function generatehash(url, element, output) {
     load(url, function (xhr) {
@@ -70,9 +67,6 @@ function generatehash(url, element, output) {
                 chrome.runtime.sendMessage({
                     total_alerts: verified // or whatever you want to send
                   });
-                // chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-                //     console.log(response.farewell);
-                //  });
             });
 
         });
@@ -80,77 +74,13 @@ function generatehash(url, element, output) {
 
             console.log(hash);
             console.log(seal);
-            var tempseal = {
-                "lookupInfo": "https://focused-snyder-fec658.netlify.com/styles.css",
-                "retrievalId": "ri317312689300628c627ddf94a90c52e26d962e60fe6e4edc1e00be6c1b6160526",
-                "seal": {
-                    "documentInfo": {
-                        "lookupInfo": "https://focused-snyder-fec658.netlify.com/styles.css",
-                        "submittedAt": 1578091721328
-                    },
-                    "proofs": [{
-                        "bundleMethod": "BALANCED_MERKLE_TREE",
-                        "operations": [{
-                            "blockChainId": "231d3842e45cfb03c004cb2f9ff9ff1a829387a023e8c9a8d17ad09e8e3ef6dd",
-                            "instanceName": "test",
-                            "insertedIntoBlockchainAt": 1578092341692,
-                            "opcode": "BLOCKCHAIN",
-                            "blockchainGeneralName": "Bitcoin"
-                        }, {
-                            "docHash": "386f0dff4a55bea649d2feb29d3bc92125ad02f1abed92f15083a9779a8837d2",
-                            "opcode": "DOC_SHA256"
-                        }, {
-                            "opcode": "ANCHOR_SHA256",
-                            "hash": "386f0dff4a55bea649d2feb29d3bc92125ad02f1abed92f15083a9779a8837d2"
-                        }]
-                    }, {
-                        "bundleMethod": "BALANCED_MERKLE_TREE",
-                        "operations": [{
-                            "blockChainId": "0x6ed853478de272ed5fb8c735639653e9763314325ead195f272cbc24da23bbc3",
-                            "instanceName": "4",
-                            "insertedIntoBlockchainAt": 1578091742124,
-                            "opcode": "BLOCKCHAIN",
-                            "blockchainGeneralName": "Ethereum"
-                        }, {
-                            "docHash": "386f0dff4a55bea649d2feb29d3bc92125ad02f1abed92f15083a9779a8837d2",
-                            "opcode": "DOC_SHA256"
-                        }, {
-                            "opcode": "ANCHOR_SHA256",
-                            "hash": "386f0dff4a55bea649d2feb29d3bc92125ad02f1abed92f15083a9779a8837d2"
-                        }]
-                    }],
-                    "version": 8,
-                    "isComplete": true
-                },
-                "submittedAt": 1578091721328,
-                "hasBeenInsertedIntoAtLeastOneBlockchain": true,
-                "blockchainRegistrations": [{
-                    "blockChainId": "231d3842e45cfb03c004cb2f9ff9ff1a829387a023e8c9a8d17ad09e8e3ef6dd",
-                    "insertedIntoBlockchainAt": 1578092341692,
-                    "blockChainDesc": {
-                        "instanceName": "test",
-                        "generalName": "Bitcoin"
-                    },
-                    "status": {
-                        "anchorHash": "386f0dff4a55bea649d2feb29d3bc92125ad02f1abed92f15083a9779a8837d2"
-                    }
-                }, {
-                    "blockChainId": "0x6ed853478de272ed5fb8c735639653e9763314325ead195f272cbc24da23bbc3",
-                    "insertedIntoBlockchainAt": 1578091742124,
-                    "blockChainDesc": {
-                        "instanceName": "4",
-                        "generalName": "Ethereum"
-                    },
-                    "status": {
-                        "anchorHash": "386f0dff4a55bea649d2feb29d3bc92125ad02f1abed92f15083a9779a8837d2"
-                    }
-                }],
-                "hasBeenInsertedIntoAllRequestedBlockchains": true
-            };
+  
             const xhr = new XMLHttpRequest;
             xhr.open('POST', 'https://developers.cryptowerk.com/platform/API/v8/verify', true);
             xhr.setRequestHeader('x-Accept', 'application/json');
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            // TODO - This key will not be vaid so enter your own API key from Cryptowerk.com
+            // TODO - Add setup options for user to get and enter API Key
             xhr.setRequestHeader('X-API-Key', '/pZqiO0DiWPzcTPrUcWeMTKf7eiwq+SqrO1s7wIdeoo= MlsDJz28Ax7O977fmkazXxjXWEbjgN3n+S4M7IULIf4=');
             // var params = 'retrievalId=ri317312689300628c627ddf94a90c52e26d962e60fe6e4edc1e00be6c1b6160526';
             var hashparams = 'verifyDocHashes=' + hash;
@@ -173,13 +103,11 @@ function generatehash(url, element, output) {
     }
 }
 
-
-
 chrome.extension.onMessage.addListener(async function (request, sender, callback) {
     const output = document.createElement('div');
     output.setAttribute('style', 'position: fixed;border: 1px solid #000;z-index: 2147483647;color: #000;font: 12px monospace;padding: 2px;width: 100%;top: 0;left: 0;background: #fff;');
     document.body.appendChild(output);
-
+    // TODO activate for more than png files. Use Scripts, CSS, ...
     /* const scripts = document.getElementsByTagName('script');
 
     for (let i = 0; i < scripts.length; i++) {
@@ -197,7 +125,7 @@ chrome.extension.onMessage.addListener(async function (request, sender, callback
             generatehash(style.href, style, output);
         }
     } */
-
+    // TODO Increase beyond png file type as well as more than one file
     const images = document.getElementsByTagName('img');
 
     for (let i = 0; i < images.length; i++) {
