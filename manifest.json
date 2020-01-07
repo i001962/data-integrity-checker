@@ -1,0 +1,37 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "name": "Digital Trust Engine",
+  "short_name": "Digital Trust Engine",
+  "description": "Digital Trust Engine",
+  "version": "1.0.3",
+  "author": "i001962",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "*://*/"
+  ],
+  "icons": {
+    "48": "cw48.png"
+  },
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "content_scripts": [{
+    "matches": [
+      "*://*/*"
+    ],
+    "js": [
+      "scripts/sha.js",
+      "scripts/main.js"
+    ],
+    "run_at": "document_idle"
+  }],
+  "browser_action": {
+    "name": "Click to change the icon's color"
+  }
+}
