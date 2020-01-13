@@ -1,0 +1,29 @@
+{
+  "appName": {
+    "message": "No Fakes",
+    "description": "No Fakes Image Verifier"
+  },
+  "appDescription": {
+    "message": "Verify Image Integrity",
+    "description": "Verify Image Integrity"
+  },
+  "settings": {
+    "message": "No Fakes Settings"
+  },
+  "allowHeaders": {
+    "message": "Access-Control-Expose-Headers"
+  },
+  "sharingHeader": {
+    "message": "Connect to Cryptowerk"
+  },
+  "urlPatterns": {
+    "message": "Cryptowerk API-Key & Credential"
+  },
+  "cwAPIKey": {
+    "message": "Crytowerk API-Key"
+  },
+  "cwAPICred": {
+    "message": "Cryptowerk API-Cred"
+  }
+
+}

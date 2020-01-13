@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "commit-to-github": "^0.2.3"
+  }
+}

@@ -1,0 +1,178 @@
+/*  Based on the wonderful work on the
+    Email Extractor Developed By Mr. Alien - Vaibhav Mehta
+    Stackoverflow:  http://stackoverflow.com/users/1542290/mr-alien
+    Email :         firekillz@gmail.com
+    Modified by @CloserToYes
+*/
+
+@import url(fonts.css);
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+}
+
+body {
+	font-family: Open Sans, Arial;
+	font-size: 15px;
+	font-weight: 400;
+
+	padding: 0 10px;
+	color: #515151;
+	padding-bottom: 10px;
+	font-size: 14px;
+	position: relative;
+}
+
+.button {
+	background-color: #4CAF50;
+	/* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+h1 {
+	font-weight: 300;
+	color: #00A72E;
+	font-size: 22px;
+	text-align: center;
+	border-bottom: 1px solid #f2f2f2;
+	padding-bottom: 10px;
+}
+
+h1 span {
+	color: #aaa;
+}
+
+strong {
+	font-weight: 600;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1 sup {
+	font-size: 14px;
+}
+
+#wrapper {
+	padding: 10px;
+	position: relative;
+	top: 1px;
+	width: 355px;
+	height: 425px;
+}
+
+#showImageCount {
+	margin: 25px auto;
+}
+
+#showImages {
+	width: 355px;
+	height: 370px;
+	font-size: 18px;
+	color: #00A72E;
+	max-height: 300px;
+	overflow: auto;
+	word-wrap: break-word;
+	padding-right: 4px;
+}
+
+footer {
+	position: absolute;
+	bottom: 1px;
+	width: 280px;
+	border-top: 1px solid #eee;
+}
+
+footer #exportBtn {
+	font-size: 12px;
+	padding: 5px 0;
+	display: inline-block;
+	color: #26499E;
+}
+
+#developedBy,
+#help {
+	font-size: 10px;
+	color: #aaa;
+	font-weight: 500;
+	position: absolute;
+	top: 6px;
+	right: 0;
+	border: 1px solid #aaa;
+	height: 14px;
+	width: 14px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 14px;
+}
+
+#help {
+	right: 25px;
+}
+
+#overlay {
+	position: absolute;
+	top: 51px;
+	left: 10px;
+	right: 10px;
+	background: #fff;
+	max-height: 265px;
+	display: none;
+	z-index: 1;
+}
+
+#overlay img {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	cursor: pointer;
+}
+
+#subOverlay {
+	height: 225px;
+	overflow: auto;
+}
+
+#overlay h4,
+#overlay p {
+	padding: 0 20px;
+	font-size: 12px;
+	padding-left: 0;
+}
+
+#overlay h4 {
+	font-size: 15px;
+	color: #26499E;
+	padding-top: 0;
+}
+
+#overlay a {
+	color: #26499E;
+
+}
